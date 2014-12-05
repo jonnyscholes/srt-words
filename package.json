@@ -1,0 +1,7 @@
+{
+	"name": "srt-words",
+	"version": "0.0.1",
+	"dependencies": {
+		"srt-parse": "jonnyscholes/srt-parse"
+	}
+}
