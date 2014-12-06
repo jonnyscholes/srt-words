@@ -7,9 +7,7 @@ module.exports = {
 };
 
 function getWordUsage(srtString) {
-	var srtObject = srt(srtString);
-	var srtTextArr = Object.keys(srtObject).map(function (key) {return srtObject[key].text});
-	var words = getSrtWords(srtTextArr);
+	var words = getSrtWords(srtString);
 	var wordStats = {};
 
 	words.forEach(function(word){
@@ -22,9 +20,12 @@ function getWordUsage(srtString) {
 	return wordStats;
 }
 
-function getSrtWords(textArr) {
+function getSrtWords(srtString) {
 	var words = [];
-	textArr.forEach(function(text){
+	var srtObject = srt(srtString);
+	var srtTextArr = Object.keys(srtObject).map(function (key) {return srtObject[key].text});
+
+	srtTextArr.forEach(function(text){
 		var t = strip(text);
 		if (t) {
 			t.split(/[\n|\s]/).forEach(function(word){
